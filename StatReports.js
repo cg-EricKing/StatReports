@@ -2,8 +2,9 @@
 // Replace the parameter on the stats variable to see stats for multiple ranges
 
 // TODAY, YESTERDAY, LAST_7_DAYS, THIS_WEEK_SUN_TODAY, LAST_WEEK, LAST_14_DAYS, LAST_30_DAYS, LAST_BUSINESS_WEEK, LAST_WEEK_SUN_SAT, THIS_MONTH, LAST_MONTH, ALL_TIME
-
-
+// Add to this script - 
+    // Tie in a spreadsheet (multiple sheets for multiple stats ranges if requested)
+        // Possibility of a select menu in spreadsheet to fire script and show data
 function main() {
     var currentAccount = AdWordsApp.currentAccount();
     var data = currentAccount.getCustomerId() + " " + currentAccount.getName() + " " + currentAccount.getTimeZone();
