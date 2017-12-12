@@ -5,7 +5,28 @@
 // Add to this script - 
     // Tie in a spreadsheet (multiple sheets for multiple stats ranges if requested)
         // Possibility of a select menu in spreadsheet to fire script and show data
+        // If not a select menu, show the ranges to choose from and have it be enetered => then a function will grab that and enter it in the getStatsFor() method.
 function main() {
+    // spreadsheet init
+    var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/10AHev_LCNeQhcMvZdDlxo4ASX8jso79sJ8ylJq1Skj0/edit?usp=sharing';
+    var headers = {
+        accountName: 2,
+        clicks: 3,
+        impressions: 4,
+        ctr: 5,
+        cost: 6,
+        avgCpm: 7,
+        cpc: 8,
+        avgPv: 9,
+        conversions: 10,
+        conversionRate: 11
+    };
+    var row = 2;
+
+    Logger.log('Using spreadsheet - %s.' + spreadsheetUrl);
+    var spreadsheet = SpreadsheetApp.openByUrl(spreadsheetUrl);
+    var sheet = spreadsheet.getSheets()[0];
+
     var currentAccount = AdWordsApp.currentAccount();
     var data = currentAccount.getCustomerId() + " " + currentAccount.getName() + " " + currentAccount.getTimeZone();
     // =================================== CHANGE THIS FIELD WITH A TIMELINE FROM ABOVE =========================================
